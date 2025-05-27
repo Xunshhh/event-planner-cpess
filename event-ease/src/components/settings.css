@@ -1,0 +1,116 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --secondary-bg: #f5f5f5;
+  --primary-color: #1a237e;
+  --border-color: #ddd;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --text-highlight: #1a237e;
+}
+
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --secondary-bg: #1e1e1e;
+  --primary-color: #bb86fc;
+  --border-color: #333333;
+  --text-primary: #ffffff;
+  --text-secondary: #c0c0c0;
+  --text-tertiary: #909090;
+  --text-highlight: #bb86fc;
+}
+
+/* Apply theme variables */
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+.dark-theme {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.settingsSection {
+  background-color: var(--secondary-bg) !important;
+  border-color: var(--border-color) !important;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.settingsSection h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+}
+
+.settingItem {
+  margin-bottom: 1rem;
+}
+
+.settingItem label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.saveButton {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--text-highlight) !important;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.saveButton:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.select {
+  background-color: var(--secondary-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.select option {
+  background-color: var(--background-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.checkbox {
+  background-color: var(--secondary-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+  margin-right: 0.5rem;
+}
+
+/* Dark mode specific improvements */
+[data-theme="dark"] .settingsSection {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .saveButton {
+  background-color: var(--primary-color) !important;
+  color: var(--text-highlight) !important;
+}
+
+[data-theme="dark"] .saveButton:hover {
+  background-color: #a369ff !important;
+}
