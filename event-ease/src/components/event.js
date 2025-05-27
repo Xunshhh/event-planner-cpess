@@ -37,7 +37,7 @@ const Event = () => {
     dateRange: 'all'
   });
 
-  // Initialize events from localStorage if they exist
+  
   useEffect(() => {
     // Get events from localStorage
     const savedEvents = localStorage.getItem('events');

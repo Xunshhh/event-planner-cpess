@@ -13,10 +13,7 @@ const Settings = () => {
     // Get other settings from localStorage
     const savedSettings = JSON.parse(localStorage.getItem('settings')) || {
       theme: savedTheme,
-      language: 'en',
-      emailNotifications: false,
-      pushNotifications: false,
-      timeZone: 'UTC'
+      language: 'en'
     };
     
     // Apply theme immediately
@@ -39,21 +36,6 @@ const Settings = () => {
     setSettings(prev => ({
       ...prev,
       language: e.target.value
-    }));
-  };
-
-  const handleCheckboxChange = (e) => {
-    const { name, checked } = e.target;
-    setSettings(prev => ({
-      ...prev,
-      [name]: checked
-    }));
-  };
-
-  const handleTimeZoneChange = (e) => {
-    setSettings(prev => ({
-      ...prev,
-      timeZone: e.target.value
     }));
   };
 
@@ -100,42 +82,9 @@ const Settings = () => {
         </div>
       </div>
 
-      <div style={styles.settingsSection}>
-        <h2>Notifications</h2>
-        <div style={styles.settingItem}>
-          <label>Email Notifications:</label>
-          <input 
-            type="checkbox" 
-            style={styles.checkbox} 
-            name="emailNotifications"
-            checked={settings.emailNotifications}
-            onChange={handleCheckboxChange}
-          />
-        </div>
-        
-        <div style={styles.settingItem}>
-          <label>Push Notifications:</label>
-          <input 
-            type="checkbox" 
-            style={styles.checkbox} 
-            name="pushNotifications"
-            checked={settings.pushNotifications}
-            onChange={handleCheckboxChange}
-          />
-        </div>
-      </div>
 
-      <div style={styles.settingsSection}>
-        <h2>Account</h2>
-        <div style={styles.settingItem}>
-          <label>Time Zone:</label>
-          <select style={styles.select} value={settings.timeZone} onChange={handleTimeZoneChange}>
-            <option value="UTC">UTC</option>
-            <option value="PST">PST</option>
-            <option value="EST">EST</option>
-          </select>
-        </div>
-      </div>
+
+
 
       <button style={styles.saveButton} onClick={saveSettings}>
         Save Changes

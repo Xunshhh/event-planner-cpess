@@ -96,7 +96,10 @@ const Profile = () => {
           </div>
 
           <div className="profile-actions">
-            <button onClick={() => setEditMode(!editMode)}>
+            <button 
+              onClick={() => setEditMode(!editMode)}
+              className={`edit-profile-button ${editMode ? 'edit-mode' : ''}`}
+            >
               {editMode ? 'Cancel' : 'Edit Profile'}
             </button>
           </div>
