@@ -17,22 +17,22 @@ const Register = () => {
     lastName: '',
     program: ''
   });
-  const [error, setError] = useState(''); // Keep this for form validation errors
+  const [error, setError] = useState(''); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    // Form validation
+    
     if (!validateForm()) {
       return;
     }
 
     try {
-      // Get existing users or create new array
+      
       const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
       
-      // Check if user already exists
+      
       const existingStudent = existingUsers.find(user => user.studentId.toLowerCase() === formData.studentId.toLowerCase());
       const existingEmail = existingUsers.find(user => user.email.toLowerCase() === formData.email.toLowerCase());
       
@@ -44,7 +44,7 @@ const Register = () => {
         throw new Error('This email is already registered. Please try another one.');
       }
 
-      // Create new user
+      
       const newUser = {
         id: Date.now().toString(),
         studentId: formData.studentId,
@@ -57,14 +57,14 @@ const Register = () => {
         createdAt: new Date().toISOString()
       };
 
-      // Add new user to existing users
+      
       const updatedUsers = [...existingUsers, newUser];
       localStorage.setItem('users', JSON.stringify(updatedUsers));
 
-      // Log in the user
+      
       await login(newUser.studentId, formData.password);
       
-      // Show success message and redirect
+      
       toast.success('Registration successful! Welcome to EventEase!');
       navigate('/dashboard');
     } catch (error) {

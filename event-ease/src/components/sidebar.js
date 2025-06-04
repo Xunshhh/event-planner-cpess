@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faCalendar, faPlus, faInfoCircle, faCog, faHome, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import './settings.css';
+import { useAuth } from '../contexts/AuthContext';
 
 const TOPBAR_HEIGHT = 60;
 
@@ -12,6 +13,7 @@ const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     setIsMounted(true);
@@ -41,7 +43,7 @@ const Sidebar = () => {
     const navigationItems = [
       { id: 'dashboard', label: 'Dashboard', icon: faHome },
       { id: 'events', label: 'Events', icon: faCalendar },
-      { id: 'add-event', label: 'Add Event', icon: faPlus },
+      ...(user.role === 'admin' ? [{ id: 'add-event', label: 'Add Event', icon: faPlus }] : []),
       { id: 'about', label: 'About', icon: faInfoCircle },
       { id: 'settings', label: 'Settings', icon: faCog }
     ];

@@ -4,9 +4,29 @@
   margin: 0 auto;
   background: var(--background-color);
   color: var(--text-primary);
-  min-height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
   box-sizing: border-box;
-  margin-top: 60px;
+  margin-top: 64px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-color);
+}
+
+.about-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.about-container::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+.about-container::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+.about-container::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color-dark);
 }
 
 @media (min-width: 768px) {

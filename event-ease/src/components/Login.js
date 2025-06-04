@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     setError('');
 
-    // Check credentials
+    
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     const user = users.find(u => u.studentId.toLowerCase() === username.toLowerCase());
 

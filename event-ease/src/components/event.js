@@ -39,17 +39,17 @@ const Event = () => {
 
   
   useEffect(() => {
-    // Get events from localStorage
+
     const savedEvents = localStorage.getItem('events');
     
     try {
-      // If events exist and are valid JSON, parse them
+     
       let events = [];
       if (savedEvents) {
         events = JSON.parse(savedEvents);
       }
       
-      // Sort events by date
+     
       const sortedEvents = events.sort((a, b) => {
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
@@ -61,7 +61,7 @@ const Event = () => {
       setLoading(false);
     } catch (error) {
       console.error('Error loading events:', error);
-      // Only clear localStorage if we had data that caused the error
+      
       if (savedEvents) {
         localStorage.removeItem('events');
       }
@@ -78,16 +78,15 @@ const Event = () => {
     }
 
     if (window.confirm('Are you sure you want to permanently remove this event? This action cannot be undone.')) {
-      // Get current events
+      
       const updatedEvents = events.filter(event => event.id !== eventId);
       setEvents(updatedEvents);
       setFilteredEvents(updatedEvents);
       
-      // Save updated events to localStorage
+      
       localStorage.setItem('events', JSON.stringify(updatedEvents));
       
-      // Remove the event from any related data structures
-      // Get notifications and remove any related to this event
+     
       const notifications = JSON.parse(localStorage.getItem('notifications') || '[]');
       const updatedNotifications = notifications.filter(notification => 
         !notification.message.includes(events.find(e => e.id === eventId).title)
@@ -112,7 +111,7 @@ const Event = () => {
       setFilteredEvents(updatedEvents);
       localStorage.setItem('events', JSON.stringify(updatedEvents));
       
-      // Add notification for event marked as ended
+     
       const notification = {
         id: Date.now().toString(),
         title: 'Event Marked as Ended',
@@ -122,9 +121,9 @@ const Event = () => {
         timestamp: new Date().toISOString()
       };
       
-      // Get existing notifications
+      
       const currentNotifications = JSON.parse(localStorage.getItem('notifications') || '[]');
-      // Add new notification
+      
       const updatedNotifications = [...currentNotifications, notification];
       localStorage.setItem('notifications', JSON.stringify(updatedNotifications));
       

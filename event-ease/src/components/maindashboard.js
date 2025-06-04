@@ -169,11 +169,6 @@ const MainDashboard = () => {
     event.category.toLowerCase().includes('project') || 
     event.category.toLowerCase().includes('showcase')
   ).length;
-  
-  const totalVision = events.filter(event => 
-    event.category.toLowerCase().includes('vision') || 
-    event.category.toLowerCase().includes('research')
-  ).length;
 
   return (
     <div style={styles.container}>
@@ -201,7 +196,6 @@ const MainDashboard = () => {
           icon={<FontAwesomeIcon icon={faMapMarkerAlt} />}
           color="#FF9800"
         />
-        <DashboardCard title="Vision Events" value={totalVision} type="cpe" />
       </div>
 
       <section className="dashboard-section">

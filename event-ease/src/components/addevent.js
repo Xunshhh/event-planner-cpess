@@ -429,18 +429,33 @@ const styles = {
     backgroundColor: 'var(--background-color)',
     borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    minHeight: 'calc(100vh - 120px)', // Adjusted for topbar
+    height: 'calc(100vh - 120px)',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    position: 'relative',
+    marginTop: '64px',
+    overflowY: 'auto',
+    scrollbarWidth: 'thin',
+    scrollbarColor: 'var(--primary-color) var(--background-color)',
+    '&::-webkit-scrollbar': {
+      width: '8px'
+    },
+    '&::-webkit-scrollbar-track': {
+      backgroundColor: 'var(--background-color)'
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: 'var(--primary-color)',
+      borderRadius: '4px'
+    }
   },
   headerContainer: {
-    marginBottom: '2rem',
+    marginBottom: '2.5rem',
     textAlign: 'center'
   },
   header: {
     fontSize: '2rem',
     color: 'var(--text-primary)',
-    marginBottom: '0.5rem'
+    marginBottom: '0.75rem'
   },
   subheader: {
     color: 'var(--text-secondary)',
@@ -448,9 +463,9 @@ const styles = {
   },
   formContainer: {
     flex: 1,
-    overflowY: 'auto',
     padding: '20px',
-    marginTop: '20px'
+    marginTop: '2.5rem',
+    position: 'relative'
   },
   form: {
     display: 'flex',

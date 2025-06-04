@@ -38,6 +38,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+.settings-container {
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
 .settingsSection {
   background-color: var(--secondary-bg) !important;
   border-color: var(--border-color) !important;
@@ -67,11 +72,17 @@ h1, h2, h3, h4, h5, h6 {
 .saveButton {
   background-color: var(--primary-color) !important;
   border-color: var(--primary-color) !important;
-  color: var(--text-highlight) !important;
+  color: white !important;
   padding: 0.75rem 1.5rem;
   font-weight: 600;
   border-radius: 6px;
   transition: all 0.2s ease;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+[data-theme="dark"] .saveButton {
+  color: white !important;
 }
 
 .saveButton:hover {
@@ -99,6 +110,13 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary) !important;
   border-color: var(--border-color) !important;
   margin-right: 0.5rem;
+}
+
+.theme-note {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  padding-left: 20px;
+  color: var(--text-tertiary);
 }
 
 /* Dark mode specific improvements */

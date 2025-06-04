@@ -29,6 +29,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/admin-login" element={<AdminLogin />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Navigate to="/login" replace />} />
             <Route
               path="/"
               element={
@@ -112,7 +113,7 @@ function App() {
                   showNotifications={showNotifications}
                   setShowNotifications={setShowNotifications}
                 >
-                  <Settings />
+                  <Settings showNotifications={showNotifications} setShowNotifications={setShowNotifications} />
                 </ProtectedRoute>
               }
             />
@@ -144,7 +145,7 @@ const ProtectedRoute = ({ children, adminOnly = false, showNotifications, setSho
   }
 
   if (adminOnly && user.role !== 'admin') {
-    // Allow students to access settings
+   
     if (window.location.pathname === '/settings') {
       return (
         <>
