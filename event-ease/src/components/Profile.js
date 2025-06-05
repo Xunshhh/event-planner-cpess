@@ -26,7 +26,7 @@ const Profile = () => {
     e.preventDefault();
     
     try {
-      // Update user data in localStorage
+      
       const users = JSON.parse(localStorage.getItem('users') || '[]');
       const updatedUsers = users.map(user => 
         user.studentId === formData.studentId ? {
@@ -40,7 +40,7 @@ const Profile = () => {
       
       localStorage.setItem('users', JSON.stringify(updatedUsers));
       
-      // Update current user state
+      
       const updatedUser = {
         ...user,
         firstName: formData.firstName,
