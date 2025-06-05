@@ -14,7 +14,7 @@ const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [events, setEvents] = useState([]);
 
-  // Initialize events if they don't exist in localStorage
+  
   useEffect(() => {
     const savedEvents = JSON.parse(localStorage.getItem('events') || '[]');
     if (!Array.isArray(savedEvents)) {
@@ -26,12 +26,12 @@ const Calendar = () => {
   }, []);
 
   useEffect(() => {
-    // Fetch events from localStorage
+    
     const savedEvents = JSON.parse(localStorage.getItem('events') || '[]');
     setEvents(savedEvents);
   }, []);
 
-  // Helper functions
+  
   const getMonthName = (date) => {
     const monthNames = [
       'January', 'February', 'March', 'April', 'May', 'June',
@@ -75,17 +75,17 @@ const Calendar = () => {
     setSelectedDate(newDate);
   };
 
-  // Generate days for the calendar
+ 
   const days = [];
   const firstDay = getFirstDay(currentMonth);
   const daysInMonth = getDaysInMonth(currentMonth);
 
-  // Add empty cells for days before the first day of the month
+  
   for (let i = 0; i < firstDay; i++) {
     days.push(<div key={`empty-${i}`} className="calendar-day" />);
   }
 
-  // Add days of the month
+  
   for (let day = 1; day <= daysInMonth; day++) {
     const hasEventToday = hasEvent(day, currentMonth.getMonth(), currentMonth.getFullYear());
     const isSelected = 
@@ -152,7 +152,7 @@ const Calendar = () => {
                    day === selectedDate.getDate();
           })
           .sort((a, b) => {
-            // Sort by time if available, otherwise by title
+            
             const timeA = a.time || '00:00';
             const timeB = b.time || '00:00';
             return timeA.localeCompare(timeB);
